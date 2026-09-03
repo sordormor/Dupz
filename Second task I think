@@ -1,0 +1,365 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/sordormor/Dupz/blob/main/Second%20task%20I%20think\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "qkr0eov1KgHi"
+      },
+      "outputs": [],
+      "source": [
+        "from sympy import *"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "1aab57e3"
+      },
+      "outputs": [],
+      "source": [
+        "# переменные и функции для примеров\n",
+        "x = symbols(\"x\")\n",
+        "y = Function(\"y\")(x)\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ode1 = Eq(diff(y,x),y/x*(-1))"
+      ],
+      "metadata": {
+        "id": "lzUtRQyxLW-L"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dsolve(ode1,y,ics = {y.subs(x,1):2})"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 51
+        },
+        "id": "zi4XZA4sLbxn",
+        "outputId": "0d0d912e-9b5e-4a5d-cff8-de2863c43285"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Eq(y(x), 2/x)"
+            ],
+            "text/latex": "$\\displaystyle y{\\left(x \\right)} = \\frac{2}{x}$"
+          },
+          "metadata": {},
+          "execution_count": 55
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "diff(f,x,2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 37
+        },
+        "id": "gozJZpwKLvT3",
+        "outputId": "648c985a-7769-4f22-b6a4-94d242eff661"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2"
+            ],
+            "text/latex": "$\\displaystyle 2$"
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "integrate(f, x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 54
+        },
+        "id": "q26woVKiLzAT",
+        "outputId": "ac583b4a-489c-42d5-8a5c-505a26a1e767"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "x**3/3"
+            ],
+            "text/latex": "$\\displaystyle \\frac{x^{3}}{3}$"
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ode = Eq(diff(y(x), x), 2*x)\n",
+        "ode"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 159
+        },
+        "id": "Nr255t_oL958",
+        "outputId": "a7af1fc5-6c9d-4cba-e542-714288a19941"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'Eq' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_2049/1628268032.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mode\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mEq\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdiff\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0my\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m2\u001b[0m\u001b[0;34m*\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      2\u001b[0m \u001b[0mode\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'Eq' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dsolve(ode, y(x))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 38
+        },
+        "id": "Rc4eU9elMGOZ",
+        "outputId": "94af9324-0e3d-4188-adc5-db266ba42d1e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Eq(y(x), C1 + x**2)"
+            ],
+            "text/latex": "$\\displaystyle y{\\left(x \\right)} = C_{1} + x^{2}$"
+          },
+          "metadata": {},
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "dsolve(ode, y(x), ics = {y(x).subs(x, 0): 0})"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 38
+        },
+        "id": "YBUj1xfoMSAv",
+        "outputId": "6c7dac13-c0dc-449f-c29a-39f138d78822"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Eq(y(x), x**2)"
+            ],
+            "text/latex": "$\\displaystyle y{\\left(x \\right)} = x^{2}$"
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ode.rhs"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 38
+        },
+        "id": "6ACrEE-UMbJV",
+        "outputId": "dc3ddd05-5c3e-4ebc-e55e-046a82ded745"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2*x"
+            ],
+            "text/latex": "$\\displaystyle 2 x$"
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ode.lhs"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 52
+        },
+        "id": "SciWxMf8MfSy",
+        "outputId": "e1b3c990-2ec7-4712-e95a-a7755e88673a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Derivative(y(x), x)"
+            ],
+            "text/latex": "$\\displaystyle \\frac{d}{d x} y{\\left(x \\right)}$"
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sol = dsolve(ode, y(x), ics = {y(x).subs(x, 0): 0})"
+      ],
+      "metadata": {
+        "id": "Hxc6WAOvMgzV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sol"
+      ],
+      "metadata": {
+        "id": "OICKJF55Mwkj",
+        "outputId": "adac9c2f-e9b8-46b7-da02-de5e089f69f5",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 38
+        }
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Eq(y(x), x**2)"
+            ],
+            "text/latex": "$\\displaystyle y{\\left(x \\right)} = x^{2}$"
+          },
+          "metadata": {},
+          "execution_count": 23
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sol.rhs.diff(x)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 38
+        },
+        "id": "pKofw78aMpoU",
+        "outputId": "abe559b1-dbb8-4b0f-f5cc-ab61eb38d57c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "2*x"
+            ],
+            "text/latex": "$\\displaystyle 2 x$"
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "TcFeYBMvMtlK"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
